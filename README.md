@@ -69,4 +69,7 @@ Deliverables:
 - A functional generative text model that can produce high-quality, coherent, and context-specific text based on given prompts or topics.
 - A detailed report outlining the model's architecture, training data, and evaluation metrics.
 - Example outputs demonstrating the model's capabilities and limitations.
-- 
+
+#OUTPUT
+
+![Image](https://github.com/user-attachments/assets/9eb3f046-9e89-49f6-8577-352a6ad6318f)
