@@ -1,0 +1,27 @@
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import torch
+
+# Load pre-trained GPT-2 tokenizer and model
+model_name = "gpt2"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+model.eval()
+
+# Function to generate text
+def generate_text(prompt, max_length=100):
+    inputs = tokenizer.encode(prompt, return_tensors="pt")
+    outputs = model.generate(inputs, max_length=max_length, do_sample=True, top_k=50, top_p=0.95)
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+# Example prompts
+prompts = [
+    "The future of artificial intelligence is",
+    "Once upon a time in a world ruled by robots,",
+    "Climate change is one of the biggest threats to",
+]
+
+# Generate and print paragraphs
+for prompt in prompts:
+    print("Prompt:", prompt)
+    print("Generated Text:\n", generate_text(prompt))
+    print("\n" + "-"*80 + "\n")
